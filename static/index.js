@@ -7,7 +7,7 @@ var git2 = git + 'tik'
 var gitBase = git2 + '/blob/master'
 var net_fun = '/.netlify/functions/'
 var net_host = 'http://localhost'
-var net_host = 'https://tik2.netlify.app'
+var net_host = 'https://tifun.netlify.app'
 var net_mongo = net_host + net_fun + 'mongo?op=find&coll='
 
 index()
