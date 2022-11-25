@@ -2,7 +2,7 @@
 type: imprint
 ---
 
-#### Declaration of Data Protection Policy
+##### Declaration of Data Protection Policy
 
 General info
 

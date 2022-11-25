@@ -7,10 +7,9 @@
 
 ### Steps to reach Goal
 
-- Started with Node js, Nodemon and Express
-- Using [Heroku](https://tik9.herokuapp.com)
-- Next step: Single Page App
-- Now: Hugo in use
+- Started with Node js and Express using [Heroku](https://tik9.herokuapp.com)
+- Single Page App
+- Now: Hugo
 
 <br>
   
@@ -18,7 +17,7 @@
 
 - Html, Markdown and CSS
 - Javascript
-- MongoDb
+- Hugo
 
 <br>
 
