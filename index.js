@@ -14,37 +14,26 @@ index()
 
 async function index() {
     var index = arguments.callee.name
-    await indexfun()
+
+    await client()
     var res = []
     res = await (await fetch(net_mongo + index)).json()
     res = res.filter(val => val.category === 'nachhilfe');
+    res = res.map(obj => ({ ...obj, url: '#' + obj.name }))
     // console.log(2, res)
     var div = document.getElementById(index)
-    res = res.map(obj => ({ ...obj, url: '#' + obj.name }))
     div.append(table(res, index))
     div.classList.add('mt-5')
 
-    res = await (await fetch(net_host + net_fun + 'sys')).json()
-    subjects_about()
+    await subjects();
+    (await client('Ihr client')).append(document.createTextNode('Browser: ' + navigator.userAgent))
 }
-async function indexfun(topic = 'index') {
-    var topicUp = topic[0].toUpperCase() + topic.slice(1)
-    var elem = document.createElement('div')
-    container.append(elem)
-    elem.id = topic
 
-    var hIntro = document.createElement("h4");
-    hIntro.classList.add('mt-5', 'mb-3');
-    hIntro.innerHTML = topicUp
-    elem.prepend(hIntro)
-    var aHref = document.createElement("a");
-    aHref.textContent = topicUp
-    aHref.classList.add('nav')
-    aHref.href = '#' + topic
-    topnav.append(aHref)
-    if (topic === 'index') {
-        aHref.classList.add('active', 'nav')
-        aHref.href = '#container'
-    }
-    return elem
+async function subjects() {
+    var elem = 'tools'
+    res = (await (await fetch(net_mongo + elem)).json()).filter(val => val.category === 'nachhilfe')
+    // console.log(res);
+
+    var updatedRes = res.map(({ tool }) => ({ Fach: tool }));
+    (await client('fächer')).append(table(updatedRes, elem))
 }
