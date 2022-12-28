@@ -2,7 +2,6 @@
 function aref(elem, val) {
     var ahref = document.createElement('a')
     ahref.textContent = val
-
     ahref.href = elem.url
     return ahref
 }
