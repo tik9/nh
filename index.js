@@ -5,10 +5,9 @@ var github = 'https://github.com/'
 var git = github + 'tik9/'
 var git2 = git + 'tik'
 var gitBase = git2 + '/blob/master'
-var net_fun = '/.netlify/functions/'
 var net_host = 'http://localhost'
 var net_host = 'https://tifun.netlify.app'
-var net_mongo = net_host + net_fun + 'mongo?op=find&coll='
+var net_mongo = net_host + '/.netlify/functions/mongo?op=find&coll='
 
 index()
 
@@ -31,7 +30,7 @@ async function index() {
 
 async function subjects() {
     var elem = 'tools'
-    res = (await (await fetch(net_mongo + elem)).json()).filter(val => val.category === 'nachhilfe')
+    res = (await (await fetch(net_mongo + elem)).json()).filter(val => (val.category === 'nachhilfe' || val.category === 'language'))
     // console.log(res);
 
     var updatedRes = res.map(({ tool }) => ({ Fach: tool }));
