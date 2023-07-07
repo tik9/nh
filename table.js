@@ -18,7 +18,7 @@ function table(arr, src) {
             if (excludes.includes(key)) continue
             if (elem.hasOwnProperty(key) && !columns.includes(key)) {
                 columns.push(key);
-                if (['title', 'text'].includes(key)) continue
+                if (['author', 'text', 'title'].includes(key)) continue
                 var th = document.createElement('th')
                 th.appendChild(document.createTextNode(key[0].toUpperCase() + key.slice(1)));
                 tr.appendChild(th);
