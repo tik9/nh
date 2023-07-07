@@ -1,4 +1,4 @@
-console.log(12)
+// console.log(12)
 var alias_cloud = 'social_cloud'
 var dateformat = /^\d{4}-\d{2}-\d{2}/
 var github = 'https://github.com/'
@@ -31,7 +31,7 @@ async function index() {
 }
 
 async function sayings() {
-    var res = (await (await fetch(net_mongo + 'sayings'))).filter(val => (val.category === 'german'));
+    var res = (await (await fetch(net_mongo + 'sayings')).json()).filter(val => (val.category === 'german'));
     (await client('Gesagtes')).append(table(res, 'sayings'))
 }
 
