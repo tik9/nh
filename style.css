@@ -1,3 +1,7 @@
+.focus:focus {
+    color: wheat;
+}
+
 /* Style the links inside the navigation bar */
 #topnav a,
 #bottomnav a {
@@ -23,16 +27,8 @@ a.active {
 
 @media screen and (max-width: 650px) {
     .nav {
-        /* a:not(:first-child), */
-        /* .nav a:not(:last-child) { */
-        /* display: none; */
         background-color: transparent;
     }
-
-    /* .icon {
-        float: right;
-        display: block;
-    } */
 
     .nav.responsive {
         position: relative;
