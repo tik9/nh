@@ -1,17 +1,20 @@
 
 document.title = tiko
-document.body.style.paddingTop = '90px'
-container.style.paddingBottom = '80px'
 
-var net_host = 'http://localhost'
+// var net_host = 'http://localhost'
 var net_host = 'https://tifun.netlify.app'
 var net_fun = '/.netlify/functions/'
 
 data()
 async function data() {
     var data = 'data'
-    var res = (await (await fetch(net_host + net_fun + 'mongo?op=find&coll=' + data)).json());
-    res = await (await (fetch(net_host + net_fun + 'utils', { method: 'post', body: JSON.stringify({ type: 'sortTable', val: res, sort1: 'cat', sort2: 'text' }) }))).json();
+    // var res = await (await fetch(net_host + net_fun + 'mongo?op=find&coll=' + data)).json();
+    // var res = [{ text: 'Alice', cat: 21 },];
+    var utils = 'utils'
+    var res = await (await (fetch(net_host + net_fun + utils))).json()
+
+    res = await (await (fetch(net_host + net_fun + utils, { method: 'post', body: JSON.stringify({ type: 'sortTable', val: res, sort1: 'cat', sort2: 'text' }) }))).json();
+    // console.log(res)
 
     var main_div = document.createElement('div')
     main_div.id = data
@@ -19,21 +22,7 @@ async function data() {
     var list = document.createElement('ul')
     main_div.append(list)
 
-    // res = [        { text: 'Alice', cat: 21 },{ text: 'Max', cat: 20 },{ text: 'Jane', cat: 20 },{ text: 'Jane2', cat: 20 },{ text: 'Jane3', cat: 22 },];
-
-    function groupBy(objectArray, property) {
-        return objectArray.reduce(function (acc, obj) {
-            var key = obj[property];
-            if (!acc[key]) {
-                acc[key] = [];
-            }
-            acc[key].push(obj);
-            return acc;
-        }, {});
-    }
-
     res = groupBy(res, 'cat');
-    // console.log(res)
 
     for (var elem in res) {
         var head = document.createElement('h5')
@@ -48,6 +37,16 @@ async function data() {
     }
 }
 
+function groupBy(objectArray, property) {
+    return objectArray.reduce((acc, obj) => {
+        var key = obj[property];
+        if (!acc[key])
+            acc[key] = [];
+
+        acc[key].push(obj);
+        return acc;
+    }, {});
+}
 
 function table(arr) {
     var excludes = ['_id', '__v', 'cat', 'name', 'url']
