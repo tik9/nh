@@ -1,0 +1,8 @@
+[build]
+command = "hugo"
+publish = "public"
+
+[dev]
+command = "hugo server -w"
+  port=8888
+  autoLaunch = false

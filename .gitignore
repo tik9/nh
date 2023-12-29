@@ -2,3 +2,5 @@
 .hugo_build.lock
 archetypes
 resources
+# Local Netlify folder
+.netlify
