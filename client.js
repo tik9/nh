@@ -13,7 +13,6 @@ async function data() {
     var utils = 'utils'
     var res = await (await (fetch(net_host + net_fun + utils))).json()
 
-    res = await (await (fetch(net_host + net_fun + utils, { method: 'post', body: JSON.stringify({ type: 'sortTable', val: res, sort1: 'cat', sort2: 'text' }) }))).json();
     // console.log(res)
 
     var main_div = document.createElement('div')
