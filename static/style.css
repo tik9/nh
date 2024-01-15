@@ -1,8 +1,16 @@
-.focus:focus {
-    color: wheat;
+body {
+    font-family: 'roboto', sans-serif;
+    width: 800px;
+    padding-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Style the links inside the navigation bar */
+#yellowtail {
+    font-family: 'yellowtail', sans-serif;
+    font-size: x-large;
+}
+
 #topnav a,
 #bottomnav a {
     font-size: 17px;
@@ -12,7 +20,6 @@
     padding: 10px 10px;
 }
 
-/* Change the color of links on hover */
 #topnav a:hover {
     background-color: #ddd;
     color: black;
