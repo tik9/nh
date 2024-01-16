@@ -1,15 +1,15 @@
 
-// console.log(4)
+var net_host
+net_host = 'https://tifun.netlify.app'
+if (location.hostname === 'localhost') net_host = 'http://localhost'
 
-var tiko = "Tiko's"
+var net_fun = '/.netlify/functions/'
+
+var tiko = "Timo's classes"
+
+header.textContent = tiko
 
 var aref = document.createElement("a");
-
-// var test = document.createElement("a");
-// test.classList.add('focus')
-// test.textContent = 'test'
-// test.href = '/'
-// bottomnav.append(test)
 
 topnav.classList.add('fixed-top', 'bg-dark')
 bottomnav.classList.add('fixed-bottom', 'bg-dark')

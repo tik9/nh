@@ -1,3 +1,9 @@
-<head><link href=/favicon.png rel=icon><link href=https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0/css/bootstrap.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Yellowtail"></head><body style=width:800px;padding-top:80px;margin-left:auto;margin-right:auto><div id=container class=container style=padding-bottom:80px><div id=topnav><h4 class="mt-5 mb-3" style=color:#fff>Timo' s classes</h4></div><div id=contact><h3 style=margin-top:60px;margin-bottom:30px>Kontakt</h3><pre><code>- email: t &quot;at&quot; tik1.net
-- Whatsapp: +49 1573 95 98 220
-</code></pre></div><div id=bottomnav></div></div><script></script><script src=/nav.js></script>
+<head><link href=/favicon.png rel=icon><link href=https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0/css/bootstrap.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Yellowtail"></head><body style=width:800px;padding-top:80px;margin-left:auto;margin-right:auto><div id=container class=container style=padding-bottom:80px><div id=topnav><h4 id=header class="mt-5 mb-2" style=color:#fff></h4></div><div style=padding-top:50px></div><div id=content></div><div id=bottomnav></div></div><script type=module>
+    import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+    test()
+    async function test() {
+        var res = await (await (fetch(net_host + net_fun + 'utils'))).json();
+        res = (res.filter(val => val.key === 'contact'))[0].val;
+        document.getElementById('content').innerHTML = marked.parse(res);
+    }
+</script><script src=/foot.js></script>
