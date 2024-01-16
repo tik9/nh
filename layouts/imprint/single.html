@@ -1,7 +1,17 @@
 {{ partial "head.html" }}
-<div id="imprint">
-    <h3 style="margin-top: 60px">Imprint</h3>
 
-    {{.Content}}
+<div style='padding-top:50px'></div>
 
-    {{ partial "foot.html" }}
+<div id="content"></div>
+<div id=bottomnav></div>
+</div>
+<script type="module">
+    import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+    test()
+    async function test() {
+        var res = await (await (fetch(net_host + net_fun + 'utils'))).json();
+        res = (res.filter(val => val.key === 'imprint'))[0].val;
+        document.getElementById('content').innerHTML = marked.parse(res);
+    }
+</script>
+{{ partial "foot.html" }}

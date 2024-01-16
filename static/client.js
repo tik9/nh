@@ -1,24 +1,16 @@
 
 document.title = tiko
 
-var net_host = 'http://localhost'
-// var net_host = 'https://tifun.netlify.app'
-var net_fun = '/.netlify/functions/'
-
 data()
 async function data() {
     var res = await (await (fetch(net_host + net_fun + 'utils'))).json()
+    res = res.filter(val => val.cat !== 'static')
 
-    // console.log(res)
-
-    var main_div = document.createElement('div')
-    main_div.id = 'data'
-    container.append(main_div)
+    var content = document.getElementById('content')
     var list = document.createElement('ul')
-    main_div.append(list)
+    content.prepend(list)
 
     res = groupBy(res, 'cat');
-    // console.log(2, res)
 
     for (var elem in res) {
         var head = document.createElement('h5')
@@ -31,6 +23,7 @@ async function data() {
             list.append(li)
         }
     }
+
 }
 
 function groupBy(objectArray, property) {

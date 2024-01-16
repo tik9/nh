@@ -33,3 +33,4 @@ Responsible for the website:
 Timo Körner
 
 Hepberg, Germany
+](../../fun/public/imprint.md)
