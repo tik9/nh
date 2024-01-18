@@ -1,17 +1,15 @@
 {{ partial "head.html" }}
 
-<div style='padding-top:50px'></div>
-
-<div id="content"></div>
-<div id=bottomnav></div>
 </div>
+<div id=bottomnav></div>
+
 <script type="module">
     import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
     test()
     async function test() {
         var res = await (await (fetch(net_host + net_fun + 'utils'))).json();
         res = (res.filter(val => val.key === 'imprint'))[0].val;
-        document.getElementById('content').innerHTML = marked.parse(res);
+        document.getElementById('container').innerHTML = marked.parse(res);
     }
 </script>
 {{ partial "foot.html" }}

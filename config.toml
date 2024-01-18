@@ -1,3 +1,9 @@
-baseURL = 'https://tik9.github.io'
 title = 'tiko'
 theme = "ananke"
+
+uglyURLs= true
+
+[menu]
+[[menu.main]]
+identifier=''
+url='index'
