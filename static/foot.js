@@ -17,7 +17,6 @@ for (var elem of ['index', "contact", 'imprint']) {
     ahref.id = elem
     ahref.href = elem + '.html';
     ahref.textContent = elem[0].toUpperCase() + elem.slice(1)
-    ahref.classList.add('nav')
     bottomnav.append(ahref)
 }
 
