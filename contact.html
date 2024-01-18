@@ -1,0 +1,9 @@
+<head><link href=/favicon.png rel=icon><link href=https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0/css/bootstrap.min.css rel=stylesheet><link href=/style.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Yellowtail"></head><body><div id=topnav><h4 id=header class="mt-2 mb-2" style=color:#fff></h4></div><div id=container class=container style=padding-bottom:80px></div><div id=bottomnav></div><script type=module>
+    import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+    test()
+    async function test() {
+        var res = await (await (fetch(net_host + net_fun + 'utils'))).json();
+        res = (res.filter(val => val.key === 'contact'))[0].val;
+        document.getElementById('container').innerHTML = marked.parse(res);
+    }
+</script><script src=/foot.js></script>
