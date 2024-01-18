@@ -6,7 +6,7 @@ async function data() {
     var res = await (await (fetch(net_host + net_fun + 'utils'))).json()
     res = res.filter(val => val.cat !== 'static')
 
-    var content = document.getElementById('content')
+    var content = document.getElementById('container')
     var list = document.createElement('ul')
     content.prepend(list)
 
@@ -23,7 +23,6 @@ async function data() {
             list.append(li)
         }
     }
-
 }
 
 function groupBy(objectArray, property) {
