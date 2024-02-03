@@ -3,14 +3,12 @@ document.title = tiko
 
 data()
 async function data() {
-    var res = await (await (fetch(net_host + net_fun + 'utils'))).json()
+    let res = await (await (fetch(net_host + net_fun + 'website'))).json()
     res = res.filter(val => val.cat !== 'static')
-
-    var content = document.getElementById('container')
-    var list = document.createElement('ul')
-    content.prepend(list)
-
     res = groupBy(res, 'cat');
+
+    var list = document.createElement('ul')
+    document.getElementById('container').prepend(list)
 
     for (var elem in res) {
         var head = document.createElement('h5')
