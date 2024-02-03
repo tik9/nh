@@ -20,6 +20,6 @@ for (var elem of ['index', "contact", 'imprint']) {
     bottomnav.append(ahref)
 }
 
-let path = window.location.pathname.split('/').pop().replace('.html', '')
+let path = window.location.pathname.split('/').pop().replace('.html', '') || 'index'
 const element = document.getElementById(path)
 if (element) element.classList.add('active');
