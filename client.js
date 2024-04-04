@@ -1,10 +1,19 @@
 
 document.title = tiko
 
+geogebra()
+function geogebra() {
+    var params = { "appName": "graphing", "width": 600, "height": 600, "showToolBar": true, "showAlgebraInput": true, "showMenuBar": true };
+    var applet = new GGBApplet(params, true);
+    window.addEventListener("load", () => {
+        applet.inject('ggb-element');
+    });
+}
+
 data()
 async function data() {
     let res = await (await (fetch(net_host + net_fun + 'website'))).json()
-    res = res.filter(val => val.cat !== 'static')
+    res = res.filter(val => val.cat !== 'static' && val.cat !== 'What people say')
     res = groupBy(res, 'cat');
 
     var list = document.createElement('ul')
